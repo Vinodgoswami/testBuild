@@ -1,1 +1,1 @@
-{"importBase":"import","nativeBase":"native","name":"resources","deps":[],"uuids":[],"paths":{},"scenes":{},"packs":{},"versions":{"import":[],"native":[]},"redirect":[],"debug":false,"extensionMap":{},"types":[]}
+{"importBase":"import","nativeBase":"native","name":"resources","deps":[],"uuids":["3bFnU3OixEt6U1rjXfO387"],"paths":{"0":["CardsData",0]},"scenes":{},"packs":{},"versions":{"import":[],"native":[]},"redirect":[],"debug":false,"extensionMap":{},"types":["cc.JsonAsset"]}
