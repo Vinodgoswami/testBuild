@@ -26,8 +26,6 @@ System.register([], function (_export, _context) {
       }).then(function () {
         settings = window._CCSettings;
         return initializeGame(cc, settings, findCanvas).then(function () {
-          if (!settings.renderPipeline) return cc.game.run();
-        }).then(function () {
           if (settings.scriptPackages) {
             return loadModulePacks(settings.scriptPackages);
           }
@@ -36,10 +34,9 @@ System.register([], function (_export, _context) {
         }).then(function () {
           return loadAssetBundle(settings.hasResourcesBundle, settings.hasStartSceneBundle);
         }).then(function () {
-          if (settings.renderPipeline) return cc.game.run();
-        }).then(function () {
-          cc.game.onStart = onGameStarted.bind(null, cc, settings);
-          onGameStarted(cc, settings);
+          return cc.game.run(function () {
+            return onGameStarted(cc, settings);
+          });
         });
       });
     }
@@ -166,7 +163,7 @@ System.register([], function (_export, _context) {
     var launchScene = settings.launchScene; // load scene
 
     cc.director.loadScene(launchScene, null, function () {
-      cc.view.setDesignResolutionSize(1080, 1440, 2);
+      cc.view.setDesignResolutionSize(960, 640, 4);
       console.log("Success to load scene: ".concat(launchScene));
     });
   }
